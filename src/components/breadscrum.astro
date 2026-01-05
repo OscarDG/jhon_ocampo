@@ -1,0 +1,35 @@
+---
+interface BreadscrumItem {
+    label: string,
+    href?: string
+}[]
+
+const { items } = Astro.props as { items: BreadscrumItem[]};
+---
+ <nav aria-label="Breadscrum" class="w-auto">
+    <ol class="flex flex-wrap items-center gap-2 text-sm text-mainblue">
+        {items.map((item, index) => {
+
+            const isLast = index === items.length -1;
+
+            return(
+                <li class="flex items-center gap-2">
+                    {!isLast ? (
+                        <a href={item.href}
+                        class="text-mainblue hover:text-lightblue transition-colors">
+                            {item.label}
+                        </a>
+                        ): (
+                            <span class="font-medium text-gray-900" aria-current="page"
+                            >
+                                {item.label}
+                            </span>
+                        )}
+                        {!isLast && (
+                            <span class="text-mainblue">/</span>
+                        )}
+                </li>
+            );
+        })}
+    </ol>
+ </nav>

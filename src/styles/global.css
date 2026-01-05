@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+    --font-poppins: 'Poppins', 'sans-serif';
+    --font-playwrite: 'Playwrite AU NSW Variable', 'sans-serif';
+    --color-mainblue: #0D3248;
+    --color-lightblue: #16798C;
+    --color-maingreen: #225959;
+    --color-darkgreen: #062725;
+    --color-branding: #67C5C5;
+    --color-illustration: #59223E;
+    --color-photography: #B94646
+}
+
+.flip-card{
+    width: 20em;
+    height: 20em;
+    perspective: 1000px;
+}
+
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front {
+  color: white;
+}
+
+.flip-card-back {
+  background-color: #007BA7;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 1.5rem;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-radius: 1rem;
+}

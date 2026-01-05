@@ -1,0 +1,28 @@
+---
+interface Props {
+    id?: number,
+    name?: string, 
+    level?: number,
+    img_url?: string,
+    desc?: string,
+}   
+
+const { name, level, img_url, desc} : Props = Astro.props
+---
+<div class="flip-card">
+    <div class=`flip-card-inner`>
+        <div class="flip-card-front flex flex-row bg-cover bg-center shadow-md" style=`background-image: url(${img_url})`>
+            <div class="overlay">
+                <div class="flex flex-row w-full h-auto p-2 items-center">
+                    <h1 class="font-bold">{name}</h1>        
+                    <span class="absolute bottom-5 right-5 flex flex-col justify-center items-center w-8 h-8 bg-white/50 rounded-full">
+                        <slot name="icon"></slot>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card-back">
+            <p class="text-sm text-center">{desc}</p>
+        </div>
+    </div>
+</div>
