@@ -31,14 +31,14 @@ const typeBgClass: Record<string, string> = {
 const bgClass = typeBgClass[project.type] ?? 'bg-gray-200'
 ---
 <Layout title={project.name}>
-    <nav class="flex flex-row justify-between items-center w-full h-auto p-4 bg-lightblue">
-        <a href="/" class="flex flex-row w-auto h-auto p-2 rounded-2xl text-center text-lightblue font-poppins bg-white">
-            <img src="/icons/rowback.svg" alt="back" />
-            Go back
-        </a>
-        <Breadscrum items={breadscrum} />
-    </nav>
-    <main class="flex flex-col w-full h-dvh">
+    <main class="flex flex-col w-full h-lvh">
+        <nav class="flex flex-row justify-between items-center w-full h-auto p-3 bg-lightblue font-bold pr-8">
+            <a href="/" class="group relative flex flex-row w-10 h-10 p-2 rounded-full overflow-hidden bg-white transition duration-400 hover:w-31 hover:rounded-4xl active:translate-x-0.5 active:traslate-y-0.5 text-lightblue font-poppins">
+                <img src="/icons/rowback.svg" alt="back" class="w-full rounded-full transition-all duration-300 group-hover:w-10"/>
+                <span class="absolute -right-10 top-2 w-19 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-19 group-hover:right-1">Go back</span>
+            </a>
+            <Breadscrum items={breadscrum} />
+        </nav>
         <div class="flex flex-row items-center justify-center w-full h-full">
             <div class="flex flex-col justify-baseline items-baseline w-[40%] h-[90%] font-poppins p-3 pl-5">
                 <div class="flex flex-col justify-center w-auto h-auto mb-5">

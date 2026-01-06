@@ -1,10 +1,9 @@
 ---
 import SkillCard from "./Skill_card.astro"
+import TechCarousel from "./TechCarousel.astro"
 
 import { type Skills } from "../types/skills"
 import { skills } from "../lib/skills"
-import { techs } from "../lib/techs";
-import { type Techs } from "../types/techs";
 
 ---
 
@@ -22,18 +21,5 @@ import { type Techs } from "../types/techs";
                 ))
         }
     </div>
-    <div class="flex flex-row justify-center w-full h-30 bg-lightblue">
-        <div class="flex flex-row justify-around items-center w-[80%] h-auto">
-            {
-                techs.map((tech) => (
-                    <div class="flex flex-col justify-center items-center w-20 h-20">
-                        <div class="flex flex-col w-12 h-12 p-2 mb-2 bg-mainblue/50 rounded-full">
-                            <img src={tech.icon} alt={tech.name} />
-                        </div>
-                        <span class="text-white font-poppins">{tech.name}</span>
-                    </div>
-                ))
-            }
-        </div>
-    </div>
+    <TechCarousel />
 </section>

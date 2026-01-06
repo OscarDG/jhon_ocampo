@@ -17,7 +17,7 @@ export default function Projects (){
 
 return(
 
-    <section className="relative flex flex-col w-full h-lvh bg-cover bg-no-repeat bg-center py-2" style={{backgroundImage: `url(${current.image})`}}>
+    <section id="projects" className="relative flex flex-col w-full h-lvh bg-cover bg-no-repeat bg-center py-2" style={{backgroundImage: `url(${current.image})`}}>
         <div className="absolute inset-0 bg-black/40"></div>
         {/*Backgound*/}
         <div className="relative flex flex-col justify-center items-center w-[50%] h-full">
@@ -60,8 +60,7 @@ return(
                         <img
                         src={slide.image}
                         alt={slide.alt}
-                        className="w-full h-full object-cover rounded-2xl shadow-md"
-                        />
+                        className="w-full h-full object-cover rounded-2xl shadow-md"/>
                         <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent rounded-2xl"></div>
                         <div className="absolute bottom-5 flex flex-col p-3">
                             <span className="flex w-5 h-0.5 rounded-full bg-white mb-2"></span>
