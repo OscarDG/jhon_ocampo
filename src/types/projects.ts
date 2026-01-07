@@ -9,7 +9,12 @@ export type Project = {
     slug: string;
     type: string;
     name: string;
-    image: string;
+    main_image: string;
+    second_image: string;
+    thirth_image: string;
+    fourth_image?: string;
+    fifth_image?: string;
+    sixth_image?: string,
     alt: string;
     desc: string;
     sub: string;

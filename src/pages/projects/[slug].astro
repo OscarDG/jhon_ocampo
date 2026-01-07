@@ -23,17 +23,17 @@ const breadscrum = [
 ]
 
 const typeBgClass: Record<string, string> = {
-    Branding: 'bg-branding',
-    Illustration: 'bg-illustration',
-    Photography: 'bg-photography'
+    Branding: 'bg-bloodred',
+    Illustration: 'bg-jasmine',
+    Photography: 'bg-brickember'
 }
 
 const bgClass = typeBgClass[project.type] ?? 'bg-gray-200'
 ---
 <Layout title={project.name}>
-    <main class="flex flex-col w-full h-lvh">
-        <nav class="flex flex-row justify-between items-center w-full h-auto p-3 bg-lightblue font-bold pr-8">
-            <a href="/" class="group relative flex flex-row w-10 h-10 p-2 rounded-full overflow-hidden bg-white transition duration-400 hover:w-31 hover:rounded-4xl active:translate-x-0.5 active:traslate-y-0.5 text-lightblue font-poppins">
+    <main class="flex flex-col w-full h-lvh mt-16">
+        <nav class="flex flex-row justify-between items-center w-full h-auto p-3 font-bold pr-8">
+            <a href="/" class="group relative flex flex-row w-10 h-10 p-2 rounded-full overflow-hidden bg-white shadow-md shadow-black-200 transition duration-400 hover:w-31 hover:rounded-4xl active:translate-x-0.5 active:traslate-y-0.5 text-deepteal font-poppins">
                 <img src="/icons/rowback.svg" alt="back" class="w-full rounded-full transition-all duration-300 group-hover:w-10"/>
                 <span class="absolute -right-10 top-2 w-19 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-19 group-hover:right-1">Go back</span>
             </a>
@@ -43,7 +43,7 @@ const bgClass = typeBgClass[project.type] ?? 'bg-gray-200'
             <div class="flex flex-col justify-baseline items-baseline w-[40%] h-[90%] font-poppins p-3 pl-5">
                 <div class="flex flex-col justify-center w-auto h-auto mb-5">
                     <h1 class=`text-center text-2xl font-bold w-full text-mainblue`>{project.name}</h1>
-                    <span class="w-full h-0.5 bg-mainblue rounded-full"></span>
+                    <span class="w-full h-0.5 bg-deepteal rounded-full"></span>
                 </div>
                 <span class:list={["w-auto h-auto p-3 rounded-2xl font-bold text-sm text-white mb-5", bgClass]}>{project.type}</span>
                 <p class="w-[90%] h-auto mt-5">{project.desc}</p>
@@ -62,11 +62,11 @@ const bgClass = typeBgClass[project.type] ?? 'bg-gray-200'
             </div>
             <div class="flex flex-col justify-center items-center w-[55%] h-[90%]">
                 <div class="w-120 h-120 overflow-hidden">
-                    <img class="w-full h-full object-cover rounded-2xl" src={project.image} alt={project.alt}/>
+                    <img class="w-full h-full object-fit rounded-2xl" src={project.main_image} alt={project.alt}/>
                 </div>
             </div>
         </div>
     </main>
-    <Bento />
+    <Bento main_image={project.main_image} second_image={project.second_image} thirth_image={project.thirth_image ?? ''} fourth_image={project.fourth_image ?? ''} fifth_image={project.fifth_image ?? ''} sixth_image={project.sixth_image ?? ''}/>
 </Layout>
 

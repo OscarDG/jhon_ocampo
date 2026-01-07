@@ -37,13 +37,11 @@
 @theme {
     --font-poppins: 'Poppins', 'sans-serif';
     --font-playwrite: 'Playwrite AU NSW Variable', 'sans-serif';
-    --color-mainblue: #0D3248;
-    --color-lightblue: #16798C;
-    --color-maingreen: #225959;
-    --color-darkgreen: #062725;
-    --color-branding: #67C5C5;
-    --color-illustration: #59223E;
-    --color-photography: #B94646
+    --color-prusianblue: #001427;
+    --color-deepteal: #708d81;
+    --color-jasmine: #f4d58d;
+    --color-brickember: #bf0603;
+    --color-bloodred: #8d0801;
 }
 
 .flip-card{

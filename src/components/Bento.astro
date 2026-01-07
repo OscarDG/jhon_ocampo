@@ -1,35 +1,45 @@
 ---
+interface Props {
+    id?: number,
+    main_image: string,
+    second_image: string,
+    thirth_image: string,
+    fourth_image: string,
+    fifth_image: string,
+    sixth_image: string
+}
 
+const { main_image, second_image, thirth_image, fourth_image, fifth_image, sixth_image } : Props = Astro.props
 ---
 <div class="grid grid-cols-4 grid-rows-4 gap-2 w-full h-auto p-5">
     <div class="grid col-span-2 row-span-2">
         <div class="relative w-full h-100 overflow-hidden rounded-2xl">
-            <img class="w-full h-full object-cover" src="/public/photography.jpg" alt="" />
+            <img class="w-full h-full object-cover" src={second_image} alt="" />
         </div>
     </div>
     <div class="grid col-span-2 row-span-2 col-start-3">
         <div class="relative w-full h-100 overflow-hidden rounded-2xl">
-            <img class="w-full h-full object-cover rounded-2xl" src="/public/drawing.jpg" alt="" />
+            <img class="w-full h-full object-cover rounded-2xl" src={thirth_image} alt="" />
         </div>
     </div>
     <div class="grid col-span-2 row-span-2">
         <div class="relative w-full h-100 overflow-hidden rounded-2xl">
-            <img class="w-full h-full object-cover rounded-2xl" src="/public/illustration.jpg" alt="" />
+            <img class="w-full h-full object-cover rounded-2xl" src={fourth_image} alt="" />
         </div>
     </div>
     <div class="grid row-span-2 col-span-1 col-start-3">
         <div class="relative w-full h-100 overflow-hidden rounded-2xl">
-            <img class="w-full h-full object-cover rounded-2xl" src="/public/branding.jpg" alt="" />
+            <img class="w-full h-full object-cover rounded-2xl" src={fifth_image} alt="" />
         </div>
     </div>
     <div class="grid col-span-1 col-start-4 row-start-3">
         <div class="relative w-full h-49 overflow-hidden rounded-2xl">
-            <img class="w-full h-full object-cover rounded-2xl" src="/public/pallete.jpg" alt="" />
+            <img class="w-full h-full object-cover rounded-2xl" src={main_image} alt="" />
         </div>
     </div>
     <div class="grid col-span-1 col-start-4 row-start-4">
         <div class="relative w-full h-49 overflow-hidden rounded-2xl">
-            <img class="w-full h-full object-cover rounded-2xl" src="/public/icons_draw.jpg" alt="" />
+            <img class="w-full h-full object-cover rounded-2xl" src={sixth_image} alt="" />
         </div>
     </div>
 </div>
