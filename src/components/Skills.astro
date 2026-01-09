@@ -9,10 +9,12 @@ import { skills } from "../lib/skills"
 
 <section class="flex flex-col justify-center w-full h-auto bg-[#F5F5F4]">
     <div class="flex flex-col justify-center items-center w-full h-auto pt-10">
-        <h1 class="mb-10 font-playwrite text-5xl text-deepteal">Mis competencias</h1>
-        <p class="text-md font-poppins">Proin consequat sit amet est in aliquet. Praesent luctus, ante efficitur dapibus porta.</p>
+        <h1 class="mb-10 font-poppins text-5xl text-charcoalblue">Mis competencias</h1>
     </div>
-    <div class="flex flex-row justify-start self-center flex-wrap p-10 gap-y-10 gap-x-10 w-[90%] h-auto">
+    <div class="flex flex-col justify-center items-center w-full h-auto p-2 mt-5 shadow-sm">
+        <TechCarousel />
+    </div>
+    <div class="flex flex-row justify-center self-center flex-wrap p-10 gap-y-10 gap-x-10 w-[90%] h-auto">
         {
             skills.map((skill) => (
                 <SkillCard id={skill.id} name={skill.name} level={skill.level} img_url={skill.img_url} desc={skill.desc}>
@@ -20,9 +22,5 @@ import { skills } from "../lib/skills"
                 </SkillCard>
                 ))
         }
-    </div>
-    <div class="flex flex-col justify-center items-center w-full h-auto p-5 shadow-2xl">
-        <h2 class="font-poppins font-bold text-jasmine mb-10">Herramientas</h2>
-        <TechCarousel />
     </div>
 </section>

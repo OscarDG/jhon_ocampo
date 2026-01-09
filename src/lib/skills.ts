@@ -1,4 +1,4 @@
-import type { Skills } from "../types/skills"
+import type { Skills, PersonalSkills, Languages, Courses } from "../types/skills"
 
 export const skills: Skills[] = [
     {
@@ -33,4 +33,48 @@ export const skills: Skills[] = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.',
     svg: '/icons/branding.svg'
 }
+]
+
+export const personalSkills: PersonalSkills[] = [
+    {
+        id: 1,
+        name: 'Creatividad',
+        svg: '/icons/creativity.svg'
+    },
+    {
+        id: 2,
+        name: 'Pensamiento Crítico',
+        svg: '/icons/brain.svg'
+    },
+    {
+        id: 3,
+        name: 'Dinamismo',
+        svg:'/icons/dinamic.svg'
+    }
+]
+
+export const languages : Languages[] = [
+    {
+        id: 1,
+        name: 'English',
+        level: 'Básico'
+    },
+    {
+        id: 2,
+        name: 'Español',
+        level: 'Nativo'
+    }
+]
+
+export const courses : Courses[] = [
+    {
+        id: 1,
+        name: 'Excel Básico',
+        institution: 'SENA'
+    },
+    {
+        id: 2,
+        name: 'Fundamentos de Marketing Digital',
+        institution: 'SENA'
+    }
 ]

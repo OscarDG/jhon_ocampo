@@ -6,3 +6,21 @@ export type Skills = {
     desc: string;
     svg: string;
 }
+
+export type PersonalSkills = {
+    id: number;
+    name: string;
+    svg: string
+}
+
+export type Languages = {
+    id: number;
+    name: string;
+    level: string
+}
+
+export type Courses = {
+    id: number;
+    name: string;
+    institution: string
+}

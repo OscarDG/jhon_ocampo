@@ -1,0 +1,27 @@
+---
+import Breadscrum from '../components/Breadscrum.astro'
+
+interface Props {
+    labels: Array<{name: string, href: string}>,
+    back_anchor: string
+}
+
+const { labels, back_anchor } : Props = Astro.props
+
+const breadscrum = [
+    {label: "Home", href: "/"},
+    ...labels.map((labeled) => (
+        {label: `${labeled.name}`, href: `${labeled.href}`}
+    ))
+]
+
+---
+<nav class="flex flex-row justify-between items-center w-[90%] h-auto border-b border-gray-400 p-3 mb-10 font-bold ">
+    <a href={back_anchor} class="group relative flex flex-row w-10 h-10 p-2 ml-0 rounded-full overflow-hidden bg-jasmine shadow-md shadow-black-200 transition duration-400 hover:w-31 hover:rounded-4xl active:translate-x-0.5 active:traslate-y-0.5 text-white font-poppins">
+        <img src="/icons/rowback.svg" alt="back" class="w-full rounded-full transition-all duration-300 group-hover:w-10"/>
+        <span class="absolute -right-10 top-2 w-19 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:w-19 group-hover:right-1">Go back</span>
+    </a>
+    <div class="flex flex-col w-auto h-auto mr-0">
+        <Breadscrum items={breadscrum} />
+    </div>
+</nav>

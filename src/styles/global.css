@@ -37,11 +37,19 @@
 @theme {
     --font-poppins: 'Poppins', 'sans-serif';
     --font-playwrite: 'Playwrite AU NSW Variable', 'sans-serif';
-    --color-prusianblue: #001427;
-    --color-deepteal: #708d81;
+    --color-charcoalblue: #264653;
+    --color-verdigris: #2a9d8f;
     --color-jasmine: #f4d58d;
-    --color-brickember: #bf0603;
-    --color-bloodred: #8d0801;
+    --color-sandibrown: #f4a261;
+    --color-burntpeach: #e76f51;
+}
+
+@supports (display: grid-lanes){
+  .lane-grid{
+    display: grid-lanes;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px
+  }
 }
 
 .flip-card{

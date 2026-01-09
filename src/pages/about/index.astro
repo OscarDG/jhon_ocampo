@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import SecondNav from "../../components/SecondNav.astro"
+
+import { personalSkills, languages, courses } from '../../lib/skills'
+
+import '@fontsource-variable/playwrite-au-nsw';
+---
+<Layout title="About">
+    <main class="flex flex-col w-full h-auto min-h-lhv mb-10">
+        <div class="flex flex-row justify-center w-full mt-20">
+            <SecondNav labels={[{name:'About', href:''}]} back_anchor="/"/>      
+        </div>
+        <section class="flex flex-col justify-center items-center w-full h-full">
+            <div class="intro flex flex-row justify-around items-center mt-10 mb-20 gap-15 w-full">
+                <div class="flex flex-col justify-center items-center w-[50%] gap-10">
+                    <h1 class="text-burntpeach font-playwrite text-6xl">Sobre mi</h1>
+                    <p class="w-[90%] text-2xl font-poppins">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et nulla cursus, condimentum nibh sed, posuere felis. 
+                    In viverra fermentum odio quis ornare. Quisque et laoreet orci. Duis ut laoreet lacus, at tempor eros. 
+                    Curabitur tempus aliquet leo, ac consequat ligula suscipit in. 
+                    Proin id ullamcorper tellus. Curabitur nec risus lectus.
+                    </p>
+                </div>
+                <div class="w-100 h-110 overflow-hidden rounded-2xl">
+                    <img class="w-full h-full object-cover" src="/public/profile_img.jpg" alt="profile_image" loading="lazy" />
+                </div>
+            </div>
+            <div class="skills flex flex-row justify-around items-baseline w-[95%] gap-10">
+                <div class="flex flex-col justify-between items-center gap-5 w-[50%] h-auto font-poppins">
+                    <h2 class="text-2xl font-medium text-verdigris">Personal skills</h2>
+                    <ul class="flex flex-row justify-between items-center w-auto gap-5 mb-10">
+                        {
+                            personalSkills.map((skill: any) => (
+                                <li class="flex flex-row w-auto h-auto p-3 gap-3 bg-jasmine rounded-full">
+                                    {skill.name}
+                                    <img src={skill.svg} alt={skill.name} />
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <h2 class="text-2xl font-medium text-verdigris">Idiomas</h2>
+                    <ul class="flex flex-row justify-between items-center w-auto gap-5">
+                        {
+                            languages.map((languaje: any) => (
+                                <li class="flex flex-col justify-center items-center w-auto h-auto p-5 gap-1 bg-jasmine rounded-4xl">
+                                    <p class="font-bold">{languaje.name}</p>
+                                    <span class="font-extralight text-[12px]">{languaje.level}</span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div> 
+                <div class="flex flex-row justify-around items-center w-[50%] h-full">
+                    <div class="flex flex-col justify-between items-center gap-5 w-full h-auto font-poppins">
+                        <h2 class="text-2xl font-medium text-verdigris">Otros estudios</h2>
+                        <ul class="flex flex-col justify-center items-between w-auto gap-5 mb-10">
+                            {
+                                courses.map((course: any) => (
+                                    <li class="w-auto h-auto">
+                                        <p class="w-auto font-bold border-b border-gray-100 mb-2">{course.name}</p>
+                                        <span>{course.institution}</span>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
