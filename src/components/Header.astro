@@ -1,16 +1,15 @@
 ---
 import '@fontsource/poppins'
+
 ---
-<header class="fixed top-0 left-0 z-10 flex flex-row justify-center w-full h-14 bg-transparent">
-    <nav class="layout_nav flex flex-row justify-between items-center w-full h-full">
-        <div class="h-auto justify-center items-center ml-20 mt-2">
-            <a href="/" >
-                <img src="/icons/logo.png" alt="Avatar" class="w-13 h-14 rounded-full" />
-            </a>
-        </div>
-        <div class="flex flex-col h-auto justify-center items-center font-poppins mt-3 mb-3">
+<header class="absolute md:fixed top-0 left-0 z-10 flex justify-center w-full h-26 md:h-10 bg-transparent">
+    <nav class="layout_nav relative flex justify-between items-center w-full h-full p-8">
+        <a href="/" class="relative flex justify-center items-center w-18 h-18 md:w-16 md:h-16 rounded-full">
+            <img src="/icons/logo.png" alt="Avatar" class="absolute top-1 right-1 w-16 h-18 md:w-14 md:h-16" />
+        </a>
+        <div class="header_menu hidden md:flex lg:flex w-auto h-full items-center font-poppins">
             <ul class="flex flex-row justify-around w-md">
-                <li class="flex justify-center w-2/5 h-auto  p-2 rounded-2xl font-bold text-white hover:bg-verdigris/50 border-transparent hover:border-brand-gray/10">
+                <li class="flex justify-center items-center w-auto h-auto pt-2 pb-2 pl-5 pr-5 rounded-2xl border border-verdigris font-bold text-sm text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
                     <a href="/about" class="mr-2">Sobre mi</a>
                     <svg  
                     width="24" height="24" viewBox="0 0 24 24" 
@@ -23,10 +22,10 @@ import '@fontsource/poppins'
                     <path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M16 19h6" />
                 </svg>
                 </li>
-                <li class="flex justify-center items center w-2/5 h-auto p-2 rounded-2xl font-bold text-white hover:bg-verdigris/50 border-transparent hover:border-brand-gray/10">
+                <li class="flex justify-center items center w-auto h-auto pt-2 pb-2 pl-5 pr-5 rounded-2xl border border-verdigris font-bold text-sm text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
                     <a href='/' target="_blank" class="mr-2">Proyectos</a> 
                     <svg
-                    width="25" height="25" 
+                    width="24" height="24" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -41,5 +40,24 @@ import '@fontsource/poppins'
                 </li>
             </ul>
         </div>
+        <div class="mobile_h_menu relative flex justify-center items-center md:hidden w-16 h-16 p-2 bg-charcoalblue rounded-sm cursor-pointer z-10">
+            <div class="inner_menu relative w-[90%] h-[90%]">
+                <span class="absolute top-0 w-full h-1 bg-white rounded-full"></span>
+                <span class="absolute top-5 w-full h-1 bg-white rounded-full"></span>
+                <span class="absolute bottom-0 w-full h-1 bg-white rounded-full"></span>
+            </div>
+        </div>
     </nav>
 </header>
+
+<script>
+    const menuBtn = document.querySelector('.mobile_h_menu')
+    
+    const innerMenu = menuBtn?.querySelector('.inner_menu')
+
+    menuBtn?.addEventListener('click', () => {
+
+    innerMenu?.classList.toggle('active');
+    });
+    
+</script>
