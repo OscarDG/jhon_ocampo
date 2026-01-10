@@ -110,7 +110,7 @@
   animation-range: 0 200px;
 }
 
-.layout_nav ul li {
+.layout_nav .nav_ul li {
   animation: scroll_animation auto linear both;
   animation-timeline: scroll(root block);
   animation-range: 0 200px;
@@ -132,6 +132,12 @@
 
 .inner_menu.active span:nth-child(3){
   animation: toggle_3 linear both;
+}
+
+.mobile_inner_menu.active {
+  display: none;
+  opacity: 0;
+  animation: nav_menu_anim 1s linear normal both;
 }
 
 @keyframes scroll_animation {
@@ -168,5 +174,14 @@
 @keyframes toggle_3 {
   to{
     display: none
+  }
+}
+
+@keyframes nav_menu_anim {
+  to{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 100%;
   }
 }

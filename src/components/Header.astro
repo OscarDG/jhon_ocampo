@@ -2,17 +2,17 @@
 import '@fontsource/poppins'
 
 ---
-<header class="absolute md:fixed top-0 left-0 z-10 flex justify-center w-full h-26 md:h-10 bg-transparent">
-    <nav class="layout_nav relative flex justify-between items-center w-full h-full p-8">
-        <a href="/" class="relative flex justify-center items-center w-18 h-18 md:w-16 md:h-16 rounded-full">
-            <img src="/icons/logo.png" alt="Avatar" class="absolute top-1 right-1 w-16 h-18 md:w-14 md:h-16" />
+<header class="absolute md:fixed top-0 left-0 z-10 flex justify-center w-full h-26 md:h-15 bg-transparent shadow">
+    <nav class="layout_nav relative flex justify-between items-center w-full h-full p-5 md:p-8">
+        <a href="/" class="relative flex justify-center items-center w-14 h-14 md:w-16 md:h-16 rounded-full top-1">
+            <img src="/icons/logo.png" alt="Avatar" class="absolute right-1 w-10 h-12 md:w-12 md:h-14" />
         </a>
         <div class="header_menu hidden md:flex lg:flex w-auto h-full items-center font-poppins">
-            <ul class="flex flex-row justify-around w-md">
-                <li class="flex justify-center items-center w-auto h-auto pt-2 pb-2 pl-5 pr-5 rounded-2xl border border-verdigris font-bold text-sm text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
+            <ul class="nav_ul flex flex-row justify-around w-md">
+                <li class="flex justify-center items-center w-auto h-auto pt-2 pb-2 pl-5 pr-5 rounded-2xl text-sm text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
                     <a href="/about" class="mr-2">Sobre mi</a>
                     <svg  
-                    width="24" height="24" viewBox="0 0 24 24" 
+                    width="20" height="20" viewBox="0 0 24 24" 
                     fill="none" stroke="currentColor" 
                     stroke-width="2" stroke-linecap="round" 
                     stroke-linejoin="round">
@@ -22,10 +22,10 @@ import '@fontsource/poppins'
                     <path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M16 19h6" />
                 </svg>
                 </li>
-                <li class="flex justify-center items center w-auto h-auto pt-2 pb-2 pl-5 pr-5 rounded-2xl border border-verdigris font-bold text-sm text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
+                <li class="flex justify-center items-center w-auto h-auto pt-2 pb-2 pl-5 pr-5 rounded-2xl text-sm text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
                     <a href='/' target="_blank" class="mr-2">Proyectos</a> 
                     <svg
-                    width="24" height="24" 
+                    width="20" height="20" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -40,24 +40,70 @@ import '@fontsource/poppins'
                 </li>
             </ul>
         </div>
-        <div class="mobile_h_menu relative flex justify-center items-center md:hidden w-16 h-16 p-2 bg-charcoalblue rounded-sm cursor-pointer z-10">
+        <div class="mobile_menu relative flex justify-center items-center md:hidden w-16 h-16 p-2 bg-charcoalblue rounded-sm cursor-pointer z-10">
             <div class="inner_menu relative w-[90%] h-[90%]">
                 <span class="absolute top-0 w-full h-1 bg-white rounded-full"></span>
                 <span class="absolute top-5 w-full h-1 bg-white rounded-full"></span>
                 <span class="absolute bottom-0 w-full h-1 bg-white rounded-full"></span>
             </div>
         </div>
+        <div class="mobile_inner_menu unactive absolute md:hidden top-25 right-8 w-90 h-60 flex flex-row justify-center items-center bg-amber-50/90 backdrop-blur-2xl rounded-2xl">
+            <ul class="flex flex-col justify-around w-full h-[90%]">
+                <li class="flex justify-center items-center w-auto h-15 pl-5 pr-5 text-xl text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
+                    <a href="/about" class="mr-2">Sobre mi</a>
+                    <svg  
+                    width="20" height="20" viewBox="0 0 24 24" 
+                    fill="none" stroke="currentColor" 
+                    stroke-width="2" stroke-linecap="round" 
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4c.948 0 1.818 .33 2.504 .88" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M16 19h6" />
+                </svg>
+                </li>
+                <li class="flex justify-center items-center w-auto h-15 pl-5 pr-5 text-xl text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
+                    <a href='/' target="_blank" class="mr-2">Proyectos</a> 
+                    <svg
+                    width="20" height="20" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" stroke-linecap="round" 
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" 
+                    fill="none"/>
+                    <path d="M3 12c0 -4.243 0 -6.364 1.318 -7.682s3.44 -1.318 7.682 -1.318s6.364 0 7.682 1.318s1.318 3.44 1.318 7.682s0 6.364 -1.318 7.682s-3.44 1.318 -7.682 1.318s-6.364 0 -7.682 -1.318s-1.318 -3.44 -1.318 -7.682" />
+                    <path d="M14.842 11.053v3.79c0 1.044 -.49 .946 -1.42 .946a2.368 2.368 0 0 1 0 -4.736zm0 0v-2.843" />
+                    <path d="M8.211 8.211v7.578" />
+                </svg>
+                </li>
+            </ul>
+        </div>
     </nav>
 </header>
 
 <script>
-    const menuBtn = document.querySelector('.mobile_h_menu')
+    const menuBtn = document.querySelector('.mobile_menu')
     
     const innerMenu = menuBtn?.querySelector('.inner_menu')
+
+    const mobileInnerMenu = document.querySelector('.mobile_inner_menu')
 
     menuBtn?.addEventListener('click', () => {
 
     innerMenu?.classList.toggle('active');
+
+    if(mobileInnerMenu?.classList.contains('unactive')){
+        mobileInnerMenu?.classList.remove('unactive')
+        mobileInnerMenu?.classList.add('active')
+    }else{
+        mobileInnerMenu?.classList.remove('active')
+        mobileInnerMenu?.classList.add('unactive') 
+    }
+
+    mobileInnerMenu?.classList.toggle('active');
+
     });
-    
+
 </script>
