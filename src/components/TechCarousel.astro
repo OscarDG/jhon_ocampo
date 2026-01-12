@@ -3,7 +3,7 @@ import { techs } from "../lib/techs";
 import { type Techs } from "../types/techs";
 ---
 <div class="relative flex flex-row justify-center overflow-hidden w-full h-50 bg-gray-100">
-    <div class="animate-carousel flex flex-row justify-around items-center w-full h-auto animate-carousel md:gap-50 gap-20">
+    <div class="animate-carousel flex flex-row justify-around items-center w-full h-auto md:gap-50 gap-20">
         {
             techs.map((tech) => (
                 <div class="flex flex-col justify-center items-center md:w-25 w-30 md:h-25 h-30">
@@ -16,8 +16,8 @@ import { type Techs } from "../types/techs";
         }
         {
             techs.map((tech) => (
-                <div class="flex flex-col justify-center items-center w-20 h-20">
-                    <div class="flex flex-col w-12 h-12 p-2 mb-2 bg-deepteal/50 rounded-full">
+                <div class="flex flex-col justify-center items-center md:w-25 w-30 md:h-25 h-30">
+                    <div class="flex flex-col md:w-14 w-18 md:h-14 h-18 p-2 mb-2 bg-deepteal/50 rounded-full">
                         <img src={tech.icon} alt={tech.name} loading="lazy"/>
                     </div>
                     <span class="text-prusianblue font-poppins">{tech.name}</span>
@@ -38,6 +38,6 @@ import { type Techs } from "../types/techs";
         }
 
         .animate-carousel{
-            animation: carousel 25s linear infinite
+            animation: carousel 15s linear infinite
         }
     </style>
