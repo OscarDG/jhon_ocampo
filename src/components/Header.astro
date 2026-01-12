@@ -47,7 +47,7 @@ import '@fontsource/poppins'
                 <span class="absolute bottom-0 w-full h-1 bg-white rounded-full"></span>
             </div>
         </div>
-        <div class="mobile_inner_menu unactive absolute md:hidden top-25 right-8 w-90 h-60 flex flex-row justify-center items-center bg-amber-50/90 backdrop-blur-2xl rounded-2xl">
+        <div class="mobile_inner_menu absolute md:hidden top-25 right-8 w-90 h-60 bg-amber-50/90 backdrop-blur-2xl rounded-2xl">
             <ul class="flex flex-col justify-around w-full h-[90%]">
                 <li class="flex justify-center items-center w-auto h-15 pl-5 pr-5 text-xl text-verdigris cursor-pointer hover:text-white hover:bg-verdigris/50">
                     <a href="/about" class="mr-2">Sobre mi</a>
@@ -93,14 +93,6 @@ import '@fontsource/poppins'
     menuBtn?.addEventListener('click', () => {
 
     innerMenu?.classList.toggle('active');
-
-    if(mobileInnerMenu?.classList.contains('unactive')){
-        mobileInnerMenu?.classList.remove('unactive')
-        mobileInnerMenu?.classList.add('active')
-    }else{
-        mobileInnerMenu?.classList.remove('active')
-        mobileInnerMenu?.classList.add('unactive') 
-    }
 
     mobileInnerMenu?.classList.toggle('active');
 
