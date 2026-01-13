@@ -134,13 +134,8 @@
   animation: toggle_3 linear both;
 }
 
-.mobile_inner_menu{
-  display: hidden;
-  opacity: 0;
-}
-
 .mobile_inner_menu.active {
-  animation: nav_menu_anim 0.5s linear normal both;
+  animation: nav_menu_anim 0.1s linear normal both;
 }
 
 @keyframes scroll_animation {
@@ -183,8 +178,10 @@
 @keyframes nav_menu_anim {
   to{
     display: flex;
+    opacity: 1;
+    scale: 1;
     flex-direction: column;
     justify-content: space-between;
-    opacity: 100%;
+    pointer-events: auto;
   }
 }
