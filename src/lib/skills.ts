@@ -5,7 +5,7 @@ export const skills: Skills[] = [
     id:1,
     name: 'Ilustración Digital',
     level: 3,
-    img_url: '/illustration.jpg',
+    img_url: '/illustration.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.',
     svg: '/icons/illustration.svg'
 },
@@ -13,7 +13,7 @@ export const skills: Skills[] = [
     id: 2,
     name: 'Fotografía',
     level: 3,
-    img_url: '/photography.jpg',
+    img_url: '/photography.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.',
     svg: '/icons/photo.svg'
 },
@@ -21,7 +21,7 @@ export const skills: Skills[] = [
     id: 3,
     name: 'Dibujo Análogo',
     level: 5,
-    img_url: '/drawing.jpg',
+    img_url: '/drawing.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.',
     svg: '/icons/drawing.svg'
 },
@@ -29,7 +29,7 @@ export const skills: Skills[] = [
     id: 4,
     name: 'Branding',
     level: 3,
-    img_url: '/branding.jpg',
+    img_url: '/branding.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.',
     svg: '/icons/branding.svg'
 }
