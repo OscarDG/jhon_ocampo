@@ -25,9 +25,9 @@ const typeBgClass: Record<string, string> = {
 const bgClass = typeBgClass[project.type] ?? 'bg-gray-200'
 ---
 <Layout title={project.name}>
-    <main class="flex flex-col items-center w-full h-auto min-h-secreen pt-18">
-        <SecondNav labels={[{name:'Projects', href:'/#projects'}, {name:`${project.name}`, href:''}]} back_anchor='/#projects'/>
-        <div class="flex flex-row items-center justify-center w-full h-full gap-5 mb-10">
+    <main class="flex flex-col items-center w-full h-auto min-h-secreen pt-10">
+        <SecondNav labels={[{name:'Projects', href:'/projects'}, {name:`${project.name}`, href:''}]} back_anchor='/#projects'/>
+        <div class="flex flex-row items-center justify-center w-full h-full gap-5 mt-10 mb-10">
             <div class="flex flex-col justify-baseline items-baseline w-[40%] h-[90%] font-poppins p-3 pl-5">
                 <div class="flex flex-col justify-center w-auto h-auto mb-5">
                     <h1 class=`text-center text-2xl font-bold w-full text-mainblue`>{project.name}</h1>

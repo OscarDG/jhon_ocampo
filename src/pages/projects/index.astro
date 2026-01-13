@@ -1,0 +1,35 @@
+---
+import SecondNav from "../../components/SecondNav.astro";
+import Layout from "../../layouts/Layout.astro"
+
+import { projects } from "../../lib/projects";
+---
+<Layout>
+    <main>
+        <section class="flex flex-col justify-center items-center w-full md:h-dvh h-full mb-10">
+            <div class="w-full h-auto mt-40">
+                <SecondNav labels={[{name: 'Project', href: '/projects'}]}, back_anchor='/'/>
+            </div>
+            <h1 class="w-150 text-center text-3xl font-playwrite text-sandibrown mt-10">Mis Proyectos</h1>
+            <div class="flex md:flex-row flex-col justify-center items-center w-[95%] md:h-auto mt-10 mb-20">
+                <ul class="flex md:flex-row flex-col justify-around items-center w-full gap-10">
+                    {
+                        projects.map((project: any) => (
+                            <a href={`projects/${project.slug}`} >
+                            <li class="relative flex flex-col justify-center items-center w-85 h-100 rounded-2xl shrink-0">
+                                <img src={project.images[0].image_url} alt={project.alt} class="w-full h-full object-cover rounded-2xl shadow-md"/>
+                                <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent rounded-2xl"></div>
+                                <div class="absolute bottom-5 flex flex-col p-3">
+                                    <span class="flex w-5 h-0.5 rounded-full bg-white mb-2"></span>
+                                    <h2 class="flex flex-col w-auto h-auto mb-3 text-md font-bold font-poppins text-white">{project.name}</h2>
+                                    <p class="flex w-[80%] text-[0.7em] font-poppins text-white">{project.sub}</p>
+                                </div>
+                            </li>
+                            </a>
+                        ))
+                    }
+                </ul>
+            </div>
+        </section>
+    </main>
+</Layout>

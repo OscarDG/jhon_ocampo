@@ -52,8 +52,8 @@ return(
             </div>
         </div>
         {/* Carousel */}
-        <div className="order-1 md:order-2 relative flex flex-col justify-center items-center w-full md:w-150 h-auto gap-6 md:mt-0 mt-15">
-            <div className="relative flex flex-row justify-baseline  w-80 md:w-2xl overflow-hidden rounded-2xl">
+        <div className="order-1 md:order-2 relative flex flex-col justify-center items-center overflow-hidden w-full md:w-150 h-auto gap-6 md:mt-0 mt-15">
+            <div className="relative flex flex-row justify-baseline w-80 md:w-full rounded-2xl">
                 {/* Slides */}
                 <div className="flex w-80 h-90 gap-6 transition-transform duration-500 pr-5" 
                 style={{ transform: `translateX(-${index * 100}%)` }}>
