@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import react from '@astrojs/react';
 
+import node from '@astrojs/node';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -14,5 +16,10 @@ export default defineConfig({
   experimental: {
     svgo: true
   },
-  integrations: [react()]
+
+  integrations: [react()],
+
+  adapter: node({
+    mode: 'standalone'
+  })
 });

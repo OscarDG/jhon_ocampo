@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.2",
     "@astrojs/react": "^4.4.2",
     "@fontsource-variable/playwrite-au-nsw": "^5.2.9",
     "@fontsource/poppins": "^5.2.7",
