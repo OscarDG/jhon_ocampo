@@ -14,6 +14,9 @@ importers:
       '@astrojs/react':
         specifier: ^4.4.2
         version: 4.4.2(@types/node@25.0.3)(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@fontsource-variable/baskervville':
+        specifier: ^5.2.3
+        version: 5.2.3
       '@fontsource-variable/playwrite-au-nsw':
         specifier: ^5.2.9
         version: 5.2.9
@@ -320,6 +323,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/baskervville@5.2.3':
+    resolution: {integrity: sha512-0RwdllhidVmgN23NPTJL81n8/K7CcdxdIdAEjspTPgtS62yE9deScUxyc8+RFRA5HxFAJqsCf9NBy4R3O93p0w==}
 
   '@fontsource-variable/playwrite-au-nsw@5.2.9':
     resolution: {integrity: sha512-0hRxJIHSOUSvAVsgeLpS8fn6E22U5plbZgaD7G+cgPMJQYBUZmRDU8t2DO6NjFKeoLHzPQF49LoOQpFEo93Scg==}
@@ -2258,6 +2264,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.12':
     optional: true
+
+  '@fontsource-variable/baskervville@5.2.3': {}
 
   '@fontsource-variable/playwrite-au-nsw@5.2.9': {}
 
