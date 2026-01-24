@@ -37,6 +37,7 @@ importers:
         version: 19.2.3(@types/react@19.2.9)
       astro:
         specifier: ^5.16.6
+<<<<<<< HEAD
         version: 5.16.15(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.56.0)(typescript@5.9.3)
       gsap:
         specifier: ^3.14.2
@@ -44,6 +45,9 @@ importers:
       motion:
         specifier: ^12.27.1
         version: 12.29.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+=======
+        version: 5.16.6(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.54.0)(typescript@5.9.3)
+>>>>>>> parent of b1eafa2 (New component from Raect Bits added - Grid Motion - test version)
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -1232,6 +1236,7 @@ packages:
     resolution: {integrity: sha512-piJxbLnkD9Xcyi7dWJRnqszEURixe7CrF/efBfbffe2DPyabmuIuqraruY8cXTs19QoM8VJzx47BDRVNXETM7Q==}
     engines: {node: '>=20'}
 
+<<<<<<< HEAD
   foreground-child@3.3.1:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
@@ -1250,6 +1255,8 @@ packages:
       react-dom:
         optional: true
 
+=======
+>>>>>>> parent of b1eafa2 (New component from Raect Bits added - Grid Motion - test version)
   fresh@2.0.0:
     resolution: {integrity: sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==}
     engines: {node: '>= 0.8'}
@@ -1277,11 +1284,16 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
+<<<<<<< HEAD
   gsap@3.14.2:
     resolution: {integrity: sha512-P8/mMxVLU7o4+55+1TCnQrPmgjPKnwkzkXOK1asnR9Jg2lna4tEY5qBJjMmAaOBDDZWtlRjBXjLa0w53G/uBLA==}
 
   h3@1.15.5:
     resolution: {integrity: sha512-xEyq3rSl+dhGX2Lm0+eFQIAzlDN6Fs0EcC4f7BNUmzaRX/PTzeuM+Tr2lHB8FoXggsQIeXLj8EDVgs5ywxyxmg==}
+=======
+  h3@1.15.4:
+    resolution: {integrity: sha512-z5cFQWDffyOe4vQ9xIqNfCZdV4p//vy6fBnr8Q1AWnVZ0teurKMG66rLj++TKwKPUP3u7iMUvrvKaEUiQw2QWQ==}
+>>>>>>> parent of b1eafa2 (New component from Raect Bits added - Grid Motion - test version)
 
   hast-util-from-html@2.0.3:
     resolution: {integrity: sha512-CUSRHXyKjzHov8yKsQjGOElXy/3EKpyX56ELnkHH34vDVw1N1XSQ1ZcAvTyAPtGqLTuKP/uxM+aLkSPqF/EtMw==}
@@ -1624,6 +1636,7 @@ packages:
     resolution: {integrity: sha512-Lbgzdk0h4juoQ9fCKXW4by0UJqj+nOOrI9MJ1sSj4nI8aI2eo1qmvQEie4VD1glsS250n15LsWsYtCugiStS5A==}
     engines: {node: '>=18'}
 
+<<<<<<< HEAD
   minimatch@9.0.5:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -1656,6 +1669,8 @@ packages:
       react-dom:
         optional: true
 
+=======
+>>>>>>> parent of b1eafa2 (New component from Raect Bits added - Grid Motion - test version)
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
     engines: {node: '>=10'}
@@ -3434,6 +3449,7 @@ snapshots:
     dependencies:
       tiny-inflate: 1.0.3
 
+<<<<<<< HEAD
   foreground-child@3.3.1:
     dependencies:
       cross-spawn: 7.0.6
@@ -3448,6 +3464,8 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
+=======
+>>>>>>> parent of b1eafa2 (New component from Raect Bits added - Grid Motion - test version)
   fresh@2.0.0: {}
 
   fsevents@2.3.3:
@@ -3470,9 +3488,13 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
+<<<<<<< HEAD
   gsap@3.14.2: {}
 
   h3@1.15.5:
+=======
+  h3@1.15.4:
+>>>>>>> parent of b1eafa2 (New component from Raect Bits added - Grid Motion - test version)
     dependencies:
       cookie-es: 1.2.2
       crossws: 0.3.5
@@ -4029,6 +4051,7 @@ snapshots:
     dependencies:
       mime-db: 1.54.0
 
+<<<<<<< HEAD
   minimatch@9.0.5:
     dependencies:
       brace-expansion: 2.0.2
@@ -4053,6 +4076,8 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
+=======
+>>>>>>> parent of b1eafa2 (New component from Raect Bits added - Grid Motion - test version)
   mrmime@2.0.1: {}
 
   ms@2.1.3: {}
