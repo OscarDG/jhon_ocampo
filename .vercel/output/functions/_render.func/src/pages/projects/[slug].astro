@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Bento from '../../components/Bento.astro';
+import SecondNav from '../../components/SecondNav.astro';
+
+import { projects } from '../../lib/projects';
+import type { Project } from '../../types/projects.ts';
+
+export async function getStaticPaths () {
+    return projects.map((project: Project) => (
+        {
+            params: { slug: project.slug },
+            props: { project }
+        }
+    ))
+}
+    const { project } = Astro.props as { project: Project}
+
+const typeBgClass: Record<string, string> = {
+    Branding: 'bg-sandibrown',
+    Illustration: 'bg-jasmine',
+    Photography: 'bg-verdigris'
+}
+
+const bgClass = typeBgClass[project.type] ?? 'bg-gray-200'
+---
+<Layout title={project.name}>
+    <main class="flex flex-col items-center w-full h-auto min-h-secreen pt-10">
+        <div class="md:w-full w-full h-auto md:mt-10 mt-20 z-1">
+            <SecondNav labels={[{name:'Projects', href:'/projects'}, {name:`${project.name}`, href:''}]} back_anchor='/'/>
+        </div>
+        <div class="flex md:flex-row flex-col items-center justify-center w-full h-full gap-5 mt-10 mb-10">
+            <div class="flex flex-col justify-baseline items-baseline md:w-[40%] w-full h-[90%] font-poppins p-3 pl-5">
+                <div class="flex flex-col justify-center md:w-auto max-w-[90%] h-auto mb-5 gap-5">
+                    <h1 class=`md:text-center text-left text-2xl font-bold w-full text-mainblue`>{project.name}</h1>
+                    <span class="w-full h-0.5 bg-jasmine rounded-full"></span>
+                </div>
+                <span class:list={["w-auto h-auto p-3 rounded-2xl font-bold text-sm text-white mb-5", bgClass]}>{project.type}</span>
+                <p class="w-[90%] h-auto mt-5">{project.desc}</p>
+                <div class="flex flex-col justify-center items-baseline w-full h-auto gap-2 mt-10">
+                    <h2 class="font-bold">Herramientas</h2>
+                    <div class="flex flex-row w-auto gap-2">
+                        {
+                            project.tech.map((tech) => (
+                                <div class="flex flex-col text-white font-poppins bg-charcoalblue p-2 border-lightblue border-2 rounded-lg">
+                                    <img class="w-8 h-8" src={tech.svg} alt={tech.techName} loading="lazy"/>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center w-[55%] h-[90%]">
+                <div class="w-100 h-120 overflow-hidden">
+                    <img class="w-full h-full object-cover rounded-2xl" src={project.images[0].image_url} alt={project.alt} loading="lazy"/>
+                </div>
+            </div>
+        </div>
+        <div class="w-full h-auto">
+            <Bento images = {project.images} />
+        </div>
+    </main>
+</Layout>
+    
