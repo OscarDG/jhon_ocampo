@@ -342,9 +342,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/baskervville@5.2.3':
-    resolution: {integrity: sha512-0RwdllhidVmgN23NPTJL81n8/K7CcdxdIdAEjspTPgtS62yE9deScUxyc8+RFRA5HxFAJqsCf9NBy4R3O93p0w==}
-
   '@fontsource-variable/playwrite-au-nsw@5.2.9':
     resolution: {integrity: sha512-0hRxJIHSOUSvAVsgeLpS8fn6E22U5plbZgaD7G+cgPMJQYBUZmRDU8t2DO6NjFKeoLHzPQF49LoOQpFEo93Scg==}
 
@@ -2589,8 +2586,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.12':
     optional: true
-
-  '@fontsource-variable/baskervville@5.2.3': {}
 
   '@fontsource-variable/playwrite-au-nsw@5.2.9': {}
 

@@ -1,16 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-    --font-poppins: 'Poppins', 'sans-serif';
-    --font-playwrite: 'Playwrite AU NSW Variable', 'sans-serif';
-    --font-baskervville: 'Baskervville Variable', 'serif';
-    --color-charcoalblue: #264653;
-    --color-verdigris: #2a9d8f;
-    --color-jasmine: #f4d58d;
-    --color-sandibrown: #f4a261;
-    --color-burntpeach: #e76f51;
-}
-
 @view-transition {
   navigation: auto;
 }
@@ -43,6 +32,16 @@
   to{
     transform: translateX(0);
   }
+}
+
+@theme {
+    --font-poppins: 'Poppins', 'sans-serif';
+    --font-playwrite: 'Playwrite AU NSW Variable', 'sans-serif';
+    --color-charcoalblue: #264653;
+    --color-verdigris: #2a9d8f;
+    --color-jasmine: #f4d58d;
+    --color-sandibrown: #f4a261;
+    --color-burntpeach: #e76f51;
 }
 
 @supports (display: grid-lanes){
