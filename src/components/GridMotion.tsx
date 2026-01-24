@@ -10,14 +10,14 @@ interface GridMotionProps {
   itemName?: string;
 }
 
-const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColorA = 'black', gradientColorB = 'white' }) => {
+const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColorA = '#e76f51', gradientColorB = '#e76f51' }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
   const mouseXRef = useRef<number>(window.innerWidth / 2);
 
   const totalItems = 28;
   const defaultItems = Array.from({ length: totalItems }, (_, index) => `Item ${index + 1}`);
-  const combinedItems = items.length > 0 ? items.slice(0, totalItems) : defaultItems;
+  //const combinedItems = items.length > 0 ? items.slice(0, totalItems) : defaultItems;
 
   useEffect(() => {
     gsap.ticker.lagSmoothing(0);
@@ -56,12 +56,12 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColorA = 'black',
   }, []);
 
   return (
-    <div ref={gridRef} className="h-full w-full overflow-hidden">
+    <div ref={gridRef} className="flex justify-center md:h-125 h-100 w-full overflow-hidden">
       <section
-        className={`w-full h-screen overflow-hidden relative flex items-center justify-center bg-linear-to-t from-${gradientColorA} from-50% to-${gradientColorB}`}
+        className={`w-full h-auto overflow-hidden relative flex items-center justify-center bg-linear-to-t from-${gradientColorA} from-50% to-${gradientColorB}`}
       >
         <div className="absolute inset-0 pointer-events-none z-4 bg-size-[250px]"></div>
-        <div className="gap-4 flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-2">
+        <div className="gap-4 flex-none relative md:w-[150vw] md:h-[150vh] grid grid-rows-4 grid-cols-1 md:rotate-[-15deg] rotate-[-20deg] origin-center z-2">
           {Array.from({ length: 4 }, (_, rowIndex) => (
             <div
               key={rowIndex}
@@ -71,11 +71,11 @@ const GridMotion: FC<GridMotionProps> = ({ items = [], gradientColorA = 'black',
                 if (el) rowRefs.current[rowIndex] = el;
               }}
             >
-            {Array.from({length: projects.length * 2 }, (_, itemIndex) => {
+            {Array.from({length: projects.length + 2 }, (_, itemIndex) => {
                   const project = projects[itemIndex % projects.length];
                   return (
                     <div key={itemIndex} className="relative">
-                      <div className="relative w-full h-full overflow-hidden rounded-[10px] bg-verdigris flex items-center justify-center text-white text-[1.5rem]">
+                      <div className="relative md:w-full md:h-full w-22 h-30 overflow-hidden rounded-[10px] flex items-center justify-center">
                           <div
                             className="w-full h-full bg-cover bg-center absolute top-0 left-0"
                             style={{ backgroundImage: `url(${project.images[0].image_url})` }}

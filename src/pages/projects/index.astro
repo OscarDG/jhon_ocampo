@@ -2,19 +2,19 @@
 import SecondNav from "../../components/SecondNav.astro";
 import Layout from "../../layouts/Layout.astro"
 
-import RotatingText from "../../components/RotatingText";
+import ImagesGrid from "../../components/ImagesGrid.astro";
 
 import { projects } from "../../lib/projects";
 ---
 <Layout>
     <main>
-        <section class="flex flex-col justify-center items-center w-full md:h-dvh h-full mb-10">
-            <div class="w-full h-auto md:mt-40 mt-30">
+        <section class="relative flex flex-col justify-center items-center w-full md:min-h-dvh h-full mb-20">
+            <div class="w-full h-auto md:mt-26 mt-30">
                 <SecondNav labels={[{name: 'Project', href: '/projects'}]}, back_anchor='/'/>
             </div>
             <h1 class="md:w-150 w-full text-center text-4xl font-baskervville text-sandibrown mt-10">Mis Proyectos</h1>
             <div class="flex md:flex-row flex-col justify-center items-center w-[95%] md:h-auto mt-10 mb-20">
-                <ul class="flex md:flex-row flex-col justify-around items-center w-full gap-10">
+                <ul class="flex md:flex-wrap md:flex-row flex-col justify-around items-center w-full gap-10">
                     {
                         projects.map((project: any) => (
                             <a href={`projects/${project.slug}`} >
@@ -33,5 +33,6 @@ import { projects } from "../../lib/projects";
                 </ul>
             </div>
         </section>
+        <ImagesGrid />
     </main>
 </Layout>
