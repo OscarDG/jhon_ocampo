@@ -13,7 +13,7 @@ const { title } : Props = Astro.props
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
+		<meta charSet="UTF-8" />
 		<meta name="viewport" content="width=device-width initial-scale=1.0" />
 		<link rel="icon" type="image/x-icon" href="/icons/logo.png" />
 		<meta name="description" content="" />
@@ -27,14 +27,14 @@ const { title } : Props = Astro.props
 		<meta name="twitter:description" content="" />
 		<title>{title}</title>
 	</head>
-	<body class="relative">
+	<body className="relative">
 		<Header />
 		<slot/>
 		<Footer />
 	</body>
 </html>
 
-<style is:global>
+<style>
 	html,
 	body {
 		margin: 0;
