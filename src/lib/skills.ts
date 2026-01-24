@@ -69,12 +69,7 @@ export const languages : Languages[] = [
 export const courses : Courses[] = [
     {
         id: 1,
-        name: 'Excel Básico',
-        institution: 'SENA'
-    },
-    {
-        id: 2,
-        name: 'Fundamentos de Marketing Digital',
+        name: 'Marketing Digital',
         institution: 'SENA'
     }
 ]
