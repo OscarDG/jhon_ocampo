@@ -2,6 +2,7 @@
 import  '../styles/global.css'
 
 import Header from '../components/Header.astro'
+import Header_second from '../components/Header_second.astro'
 import Footer from '../components/Footer.astro'
 interface Props {
 	title?: string
@@ -13,9 +14,9 @@ const { title } : Props = Astro.props
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charSet="UTF-8" />
+		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width initial-scale=1.0" />
-		<link rel="icon" type="image/x-icon" href="/icons/logo.png" />
+		<link rel="icon" type="image/x-icon" href="/icons/monograma_janier_blanco_1.svg" />
 		<meta name="description" content="" />
 		<meta property="og:title" content="Janier Ocampo - Diseño" />
 		<meta property="og:description" content="" />
@@ -27,8 +28,8 @@ const { title } : Props = Astro.props
 		<meta name="twitter:description" content="" />
 		<title>{title}</title>
 	</head>
-	<body className="relative">
-		<Header />
+	<body class="relative">
+		{title === "Home" ? <Header /> : <Header_second />}
 		<slot/>
 		<Footer />
 	</body>

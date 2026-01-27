@@ -17,16 +17,15 @@ export default function Projects (){
 
 return(
 
-    <section id="projects" className="relative flex flex-col md:flex-row justify-around items-center w-full h-auto md:h-lvh bg-cover bg-no-repeat bg-center py-2" style={{backgroundImage: `url(${current.images[0].image_url})`}}>
-        <div className="absolute inset-0 bg-black/50"></div>
+    <section id="projects" className="relative flex flex-col md:flex-row justify-around items-center w-full h-auto md:h-lvh bg-[#f5f5f4] py-2">
             {/*Backgound*/}
         <div className="order-2 md:order-1 relative flex flex-col justify-between items-center md:items-baseline w-full md:w-[50%] h-auto p-10 md:mt-0 mt-10">
             <div className="title flex flex-col justify-baseline items-center md:items-baseline w-fit max-w-full">
-                <h2 className="font-bold text-white text-center md:text-left text-3xl font-poppins pb-2">{current.name}</h2>
+                <h2 className="font-bold text-verdigris text-center md:text-left text-3xl font-poppins pb-2">{current.name}</h2>
                 <span className="w-full h-0.5 rounded-full bg-jasmine"></span>
             </div>
             <div className="flex flex-col md:justify-baseline justify-center items-baseline w-[90%] h-auto p-4 mt-5 mb-15 md:mb-0">
-                <p className="text-white md:text-1xl lg:tex-3xl text-center md:text-left font-poppins">{current.desc}</p>
+                <p className="text-gray-900 md:text-1xl lg:tex-3xl text-center md:text-left font-poppins">{current.desc}</p>
             </div>
             <div className="flex flex-row justify-around items-center w-[90%] h-auto">
                     <div className="flex flex-row justify-around w-auto p-3 gap-5">
