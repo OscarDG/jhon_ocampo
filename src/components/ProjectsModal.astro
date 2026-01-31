@@ -1,21 +1,7 @@
 ---
-import { imageConfig } from 'astro:assets'
-import { projects } from '../lib/projects'
-import type { Images } from '../types/projects'
-interface Props {
-    id?: number,
-    images: Images[]
-}
-
-const { images } : Props = Astro.props
 ---
-<div class="relative grid grid-cols-3 gap-10 w-full max-w-280 max-h-vh h-auto p-5">
-{
-    images.map((image) => (
-        <button class="open-modal" data-image={image.image_url} data-alt={image.image_name}><img src={image.image_url} alt={image.image_name} loading="lazy" class="bento_image w-full h-fit max-h-130 rounded-2xl cursor-pointer"/></button>
-    ))
-}
-</div>
+<!-- Button trigger modal -->
+ <button id="open-modal" class="px-6 py-2 text-white bg-blue-600 rounded-lg hover-bg-blue-700 transition">Open Modal</button>
 <!-- Modal -->
 <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center invisible opacity-0 transition-opacity duration-300">
     <!-- Backdrop -->
@@ -24,32 +10,33 @@ const { images } : Props = Astro.props
       <div id="modal-content" class="relative z-10 flex flex-col w-full max-w-lg mx-4 bg-white rounded-2xl shadow-xl overflow-hidden scale-95 opacity-0 transition-all duration-300">
         <!-- Header -->
         <div class="flex items-center justify-between p-6 border-b">
-            <h2 id="modal-title" class="text-xl font-bold text-gray-800"></h2>
+            <h2 class="text-xl font-bold text-gray-800">Modal Title</h2>
+            <button id="modal-close" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18"/><path d="m6 6 12 12">
+                </svg>
+            </button>
         </div>
         <!-- Body -->
-        <div class="p-6 flex items-center justify-center">
-            <img id="modal-image" src="" alt="Modal image" class="w-fit h-auto max-h-100 rounded-xl object-cover"/>
+        <div class="p-6">
+            <p class="text-gray-600">Modal content goes here.</p>
         </div>
         <!-- Footer -->
         <div class="flex items-center justify-end p-6 gap-3 border-t">
-            <button id="cancel-btn" class="px-4 py-2 text-white font-[montserrat] bg-sandibrown rounded-lg hover:bg-transparent hover:ring-1 hover:ring-sandibrown hover:text-sandibrown transition cursor-pointer">Cerrar</button>
+            <button id="cancel-btn" class="px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition">Cancel</button>
+            <button class="px-4 py-2 text-white bg-blue-600 rounded-lg hover-bg-blue-700 transition">Confirm</button>
         </div>
       </div>
     </div>
     <script>
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('modal-content');
-        const modalImage = document.getElementById('modal-image') as HTMLImageElement;
-        const modalTitle = document.getElementById('modal-title') as HTMLHeadingElement;
-        const openBtns = document.querySelectorAll('.open-modal');
-        const closeBtn = document.getElementById('modal-close');
+        const openBtn = document.getElementById('open-modal');
+        const closeBtn = document.getElementById('close-modal');
         const cancelBtn = document.getElementById('cancel-btn');
         const backdrop = document.getElementById('modal-backdrop');
 
-        function openModal(image: string, alt: string) {
-            modalImage.src = image;
-            modalImage.alt = alt;
-            modalTitle.textContent = alt;
+        function openModal() {
             modal?.classList.remove('invisible');
             // Pequeño delay para que la transición funcione
             requestAnimationFrame(() => {
@@ -69,14 +56,8 @@ const { images } : Props = Astro.props
             }, 300);
         }
 
-         //Event listeners
-        openBtns.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const image = btn.getAttribute('data-image') || '';
-                const alt = btn.getAttribute('data-alt') || '';
-                    openModal(image, alt);
-            });
-        });
+        //Event listeners
+        openBtn?.addEventListener('click', openModal);
         closeBtn?.addEventListener('click', closeModal);
         cancelBtn?.addEventListener('click', closeModal);
         backdrop?.addEventListener('click', closeModal);
