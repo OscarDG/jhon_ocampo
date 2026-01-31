@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { projects } from "../lib/projects";
 import type { Project } from "../types/projects.ts"
 
 export default function Projects (){
 
     const [index, setIndex] = useState<number>(0);
+    const [isDragging, setIsDragging] = useState<boolean>(false);
+    const [startPos, setStartPos] = useState<number>(0);
+    const [currentTranslate, setCurrentTranslate] = useState<number>
+    (0);
+    const [prevTranslate, setPrevTranslate] = useState<number>(0);
+
+    const carouselRef = useRef<HTMLDivElement>(null);
     
+    // Función para cambiar el slide con controles
       const prev = () => 
         setIndex((i) => (i === projects.length - 1 ? 0 : i + 1))
     
@@ -14,6 +22,78 @@ export default function Projects (){
         setIndex((i) => (i > 0 ? i - 1 : 0));
 
       const current: Project = projects[index]
+
+        // Función para obtener la posición (touch o mouse)
+      const getPositionX = (event: TouchEvent | MouseEvent): number => {
+        return 'touches' in event ? event.touches[0].clientX : event.clientX;
+      }
+
+      // Inicio del drag/swipe
+      const handleStart = (event: React.TouchEvent | React.MouseEvent) => {
+        setIsDragging(true);
+        const pos = getPositionX(event.nativeEvent as TouchEvent | MouseEvent);
+        setStartPos(pos);
+      }
+
+       // Remover transición durante el drag
+
+       if (carouselRef.current) {
+        carouselRef.current.style.transition = 'none';
+      }
+
+      // Movimiento del drag/swipe
+      const handleMove = (event: React.TouchEvent | React.MouseEvent) => {
+        if (!isDragging) return;
+
+        const currentPosition = getPositionX(event.nativeEvent as TouchEvent | MouseEvent);
+        const diff = currentPosition - startPos;
+        setCurrentTranslate(prevTranslate + diff);
+      }
+
+      // Final del drag/swipe
+      const handleEnd = () => {
+        if(!isDragging) return;
+
+        setIsDragging(false);
+
+        // Restaurar transición
+
+        if (carouselRef.current) {
+          carouselRef.current.style.transition = 'transform 0.5s ease-in-out';
+        }
+
+        const movedBy = currentTranslate - prevTranslate;
+        const threshold = 50; // Píxeles mínimos para cambiar de slide
+
+         // Determinar dirección del swipe
+
+         if (movedBy < -threshold && index < projects.length - 1) {
+            // Swipe hacia la izquierda - siguiente
+            setIndex(i => i + 1);
+        } else if (movedBy > threshold && index > 0) {
+        // Swipe hacia la derecha - anterior
+          setIndex((i) => i - 1);
+        }
+
+        // Resetear valores
+        setCurrentTranslate(0);
+        setPrevTranslate(0);
+      }
+
+      // Prevenir el scroll vertical mientras se hace swipe horizontal
+      const handleTouchMove = (event: React.TouchEvent) => {
+        if (isDragging) {
+            event.preventDefault();
+        }
+        handleMove(event);
+      }
+
+      // Actualizar prevTranslate cuando cambia el index
+
+      useEffect(() => {
+        setPrevTranslate(-index * 100);
+        setCurrentTranslate(-index * 100)
+      }, [index]);
 
 return(
 
@@ -52,12 +132,18 @@ return(
         </div>
         {/* Carousel */}
         <div className="order-1 md:order-2 relative flex flex-col justify-center items-center overflow-hidden w-full md:w-150 h-auto gap-6 md:mt-0 mt-15">
-            <div className="relative flex flex-row justify-baseline w-80 md:w-full rounded-2xl">
+            <div className="relative flex flex-row justify-baseline w-80 md:w-full rounded-2xl cursor-grab active:cursor-grabbing" onTouchStart={handleStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleEnd}
+            onMouseDown={handleStart}
+            onMouseMove={handleMove}
+            onMouseUp={handleEnd}
+            onMouseLeave={handleEnd}>
                 {/* Slides */}
                 <div className="flex w-80 h-90 gap-6 transition-transform duration-500 pr-5" 
-                style={{ transform: `translateX(-${index * 100}%)` }}>
+                style={{transform: isDragging ? `translateX(calc(${currentTranslate}% + ${currentTranslate - prevTranslate}px))` : `translateX(-${index * 100}%)`}}>
                     {projects.map((slide: any, i: any) => (
-                    <div key={i} className="relative flex flex-col w-full shrink-0">
+                    <div key={i} className="relative flex flex-col w-full shrink-0 pointer-events-none">
                         <img
                         src={slide.images[0].image_url}
                         alt={slide.alt}
