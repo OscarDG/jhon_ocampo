@@ -53,8 +53,8 @@ const bgClass = typeBgClass[project.type] ?? 'bg-gray-200'
                 </div>
             </div>
             <div class="flex flex-col justify-center items-center w-auto md:w-[55%] h-auto md:h-[90%]">
-                <div class="w-auto h-120 overflow-hidden">
-                    <img class="w-full md:w-full h-120 object-fit rounded-2xl" src={project.images[0].image_url} alt={project.alt} loading="lazy"/>
+                <div class="w-auto max-w-100 h-auto max-h-170 overflow-hidden">
+                    <img class="w-full md:w-full h-fit object-fit rounded-2xl" src={project.images[0].image_url} alt={project.alt} loading="lazy"/>
                 </div>
             </div>
         </div>
