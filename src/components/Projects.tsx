@@ -10,6 +10,7 @@ export default function Projects (){
     const [currentTranslate, setCurrentTranslate] = useState<number>
     (0);
     const [prevTranslate, setPrevTranslate] = useState<number>(0);
+    const [isSwiping, setIsSwiping] = useState<boolean>(false);
 
     const carouselRef = useRef<HTMLDivElement>(null);
     
@@ -33,12 +34,12 @@ export default function Projects (){
         setIsDragging(true);
         const pos = getPositionX(event.nativeEvent as TouchEvent | MouseEvent);
         setStartPos(pos);
-      }
 
-       // Remover transición durante el drag
+           // Remover transición durante el drag
 
-       if (carouselRef.current) {
-        carouselRef.current.style.transition = 'none';
+        if (carouselRef.current) {
+            carouselRef.current.style.transition = 'none';
+        }
       }
 
       // Movimiento del drag/swipe
@@ -47,6 +48,13 @@ export default function Projects (){
 
         const currentPosition = getPositionX(event.nativeEvent as TouchEvent | MouseEvent);
         const diff = currentPosition - startPos;
+
+         // Marcar que hubo swipe si el movimiento es significativo
+
+         if (Math.abs(diff) > 5) {
+            setIsSwiping(true);
+        }
+
         setCurrentTranslate(prevTranslate + diff);
       }
 
@@ -78,6 +86,9 @@ export default function Projects (){
         // Resetear valores
         setCurrentTranslate(0);
         setPrevTranslate(0);
+
+        // Resetear isSwiping después de un pequeño delay
+        setTimeout(() => setIsSwiping(false), 100)
       }
 
       // Prevenir el scroll vertical mientras se hace swipe horizontal
@@ -117,7 +128,7 @@ return(
                             ))
                         }
                     </div>
-                    <a className='group flex flex-row items-center gap-3 w-auto h-[70%] pl-6 pr-4 pt-2 pb-2 rounded-2xl bg-jasmine' href={`/projects/${current.slug}`}>
+                    <a className='group hidden md:flex flex-row items-center gap-3 w-auto h-[70%] pl-6 pr-4 pt-2 pb-2 rounded-2xl bg-jasmine' href={`/projects/${current.slug}`}>
                         <span className="w-auto h-auto text-sandibrown font-bold font-poppins">Explorar</span>
                         <svg xmlns="http://www.w3.org/2000/svg" 
                         width="20" height="20" viewBox="0 0 24 24" 
@@ -140,10 +151,14 @@ return(
             onMouseUp={handleEnd}
             onMouseLeave={handleEnd}>
                 {/* Slides */}
-                <div className="flex w-80 h-90 gap-6 transition-transform duration-500 pr-5" 
+                <div className="flex w-80 h-90 gap-6 transition-transform duration-500 pr-5 select-none" 
                 style={{transform: isDragging ? `translateX(calc(${currentTranslate}% + ${currentTranslate - prevTranslate}px))` : `translateX(-${index * 100}%)`}}>
                     {projects.map((slide: any, i: any) => (
-                    <div key={i} className="relative flex flex-col w-full shrink-0 pointer-events-none">
+                    <a key={i} href={`/projects/${slide.slug}`} className="relative flex flex-col w-full shrink-0 md:pointer-events-none" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                        if(window.innerWidth >= 768 || isSwiping){
+                            e.preventDefault();
+                        }
+                    }}>
                         <img
                         src={slide.images[0].image_url}
                         alt={slide.alt}
@@ -155,12 +170,23 @@ return(
                             <h2 className="flex flex-col w-auto h-auto mb-3 text-md font-bold font-poppins text-white">{slide.name}</h2>
                             <p className="flex w-[80%] text-[0.7em] font-poppins text-white">{slide.sub}</p>
                         </div>
-                    </div>
+                    </a>
                     ))}
                 </div>
             </div>
-            {/* Controls */}
-            <div className="flex flex-row justify-between w-50 md:w-70 h-10">
+            {/* Indicadores - Solo móviles */}
+            <div className="flex md:hidden flex-row justify-center gap-2 w-full h-auto">
+                {projects.map((_, i) => (
+                    <div 
+                        key={i}
+                        className={`h-2 rounded-full transition-all ${
+                            i === index ? 'w-6 bg-sandibrown' : 'w-2 bg-gray-300'
+                        }`}
+                    />
+                ))}
+            </div>
+            {/* Controls - sólo desktop */}
+            <div className="hidden md:flex flex-row justify-between w-50 md:w-70 h-10">
                 <div onClick={next} className="flex flex-row justify-center items-center w-10 h-10 rounded-full border-2 border-sandibrown hover:bg-jasmine/70">
                     <svg xmlns="http://www.w3.org/2000/svg" 
                     width="24" height="24" viewBox="0 0 24 24" 
